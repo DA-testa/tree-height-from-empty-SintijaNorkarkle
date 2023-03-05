@@ -4,8 +4,7 @@ import sys
 import threading
 import os
 
-
-def compute_height(a,vecaki):
+def compute_height(a, vecaki):
     # Write this function
     # Your code here
     berni = []
@@ -29,16 +28,13 @@ def compute_height(a,vecaki):
         s.extend([(ch, m+1) for ch in berni[n]])
     return max_height
 
-
 def main():
     options = {
         "I": ievade_no_tastaturas,
         "F": ievade_no_faila
     }
     text = input("Ievadiet 'I' vai 'F' ")
-
-    # implement input form keyboard and from files
-    
+    # implement input form keyboard and from files 
     try:
         a, vecaki = options[text]()
     except KeyError:
@@ -61,25 +57,21 @@ def ievade_no_faila():
     except FileNotFoundError:
         print("Fails netika atrasts")
 
-
 def ievade_no_tastaturas():
     a = int(input("Ievadiet koka mezglu skaitu: "))
     vec = input()
     vecaki = [int(v) for v in vec.split()]
     return a, vecaki
 
-
     # account for github input inprecision
-    
     # input number of elements
     # input values in one variable, separate with space, split these values in an array
-    # call the function and output it's result
-    
+    # call the function and output it's result 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
 # of bigger stack, we have to launch the computation in a new thread.
-    sys.setrecursionlimit(10**7)  # max depth of recursion
-    threading.stack_size(2**27)   # new thread will get stack of such size
-    threading.Thread(target=main).start()
+sys.setrecursionlimit(10**7)  # max depth of recursion
+threading.stack_size(2**27)   # new thread will get stack of such size
+threading.Thread(target=main).start()
 main()
 #print(numpy.array([1,2,3]))
