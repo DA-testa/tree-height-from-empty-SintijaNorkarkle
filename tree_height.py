@@ -46,14 +46,13 @@ def main():
         vecaki = np.array(list(map(int,input().split())))
     elif "F" in text:
 
-        faila_nosaukums = input()
-        faila_atr = "." + os.sep + "name" + os.sep + faila_nosaukums
+        faila_nosaukums = str(input())
         if "a" in faila_nosaukums:
             print("Nederīgs faila nosaukums")
 
         try:
-
-            with open(faila_atr, 'r' ,  encoding="utf8") as file:
+            faila_nosaukums = "test/" + str(faila_nosaukums)
+            with open(faila_nosaukums, 'r' ,  encoding="utf8") as file:
                 aaa = int(file.readline().strip())
                 vecaki = np.array(list(map(int, file.readline().split())))
 
