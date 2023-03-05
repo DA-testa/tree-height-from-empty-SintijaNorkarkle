@@ -47,7 +47,7 @@ def main():
         vecaki = np.array(list(map(int,input().split())))
     elif "F" in text:
 
-        faila_nosaukums = input().strip()
+        faila_nosaukums = input()
         faila_atr = "." + os.sep + "name" + os.sep + faila_nosaukums
         if "a" in faila_nosaukums:
             print("Nederīgs faila nosaukums")
@@ -59,7 +59,7 @@ def main():
                 vecaki = np.array(list(map(int, file.readline().split())))
 
         except FileNotFoundError:
-            print("Fails netika atrasts")
+            print("Nepareiza atbilde")
             return
     else:
         print("Error")
