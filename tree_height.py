@@ -4,7 +4,6 @@ Sintija Norkārkle
 """
 import sys
 import threading
-import os
 import numpy as np
 
 def compute_height(aaa, vecaki):
@@ -59,9 +58,7 @@ def main():
         except FileNotFoundError:
             print("Fails netika atrasts")
             return
-    else:
-        print("Error")
-        return
+
     height = compute_height(aaa,vecaki)
     print(height)
 
