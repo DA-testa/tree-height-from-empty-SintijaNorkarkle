@@ -1,72 +1,87 @@
 # python3
-
+"""
+programma ...
+"""
 import sys
 import threading
 import os
 
-def compute_height(a, vecaki):
+def compute_height(aaa, vecaki):
+    """
+    xcvn
+    """
     # Write this function
     # Your code here
     berni = []
-    for i in range(a):
+    for i in range(aaa):
         berni.append([])
-    r = None
-    augst = [0] * a
+    rrr = None
+    augst = [0] * aaa
 
-    for i in range(a):
+    for i in range(aaa):
         if vecaki[i] == -1:
-            r = i
+            rrr = i
         else:
             berni[vecaki[i]].append(i)
-    s = [(r,1)]
+    sss = [(rrr,1)]
     max_height = 0
 
-    while s:
-        n, m = s.pop()
-        augst[n] = m
-        max_height = max(max_height, m)
-        s.extend([(ch, m+1) for ch in berni[n]])
+    while sss:
+        nnn, mmm = sss.pop()
+        augst[nnn] = mmm
+        max_height = max(max_height, mmm)
+        sss.extend([(ch, mmm+1) for ch in berni[nnn]])
     return max_height
 
 def main():
+    """
+    xdbf
+    """
+
     options = {
         "I": ievade_no_tastaturas,
         "F": ievade_no_faila
     }
     text = input("Ievadiet 'I' vai 'F' ")
-    # implement input form keyboard and from files 
+    # implement input form keyboard and from files
     try:
-        a, vecaki = options[text]()
+        aaa, vecaki = options[text]()
     except KeyError:
         print("Nepareiza ievade")
         return
-    print(compute_height(a,vecaki))
+    print(compute_height(aaa, vecaki))
     # let user input file name to use, don't allow file names with letter a
 def ievade_no_faila():
+    """
+    sdgc
+    """
     faila_nosaukums = input("Ievadiet faila nosaukumu: ")
 
     if "a" in faila_nosaukums:
         print("Nederīgs faila nosaukums")
         return
     try:
-        fp = "." + os.sep + "name" + os.sep + faila_nosaukums
-        with open(fp, "r") as q:
-            a = int(q.readlines())
-            vecaki = list(map(int, q.readlines().strip().split()))
-        return a, vecaki
+        faila_atr = "." + os.sep + "name" + os.sep + faila_nosaukums
+        with open(faila_atr, mode = "r" ,  encoding="utf8") as file:
+            aaa = int(file.readline())
+            vecaki = list(map(int, file.readline().strip().split()))
+        return aaa, vecaki
     except FileNotFoundError:
         print("Fails netika atrasts")
 
 def ievade_no_tastaturas():
-    a = int(input("Ievadiet koka mezglu skaitu: "))
+    """
+    sfdgbcx
+    """
+    aaa = int(input("Ievadiet koka mezglu skaitu: "))
     vec = input()
     vecaki = [int(v) for v in vec.split()]
-    return a, vecaki
+    return aaa, vecaki
 
     # account for github input inprecision
     # input number of elements
     # input values in one variable, separate with space, split these values in an array
-    # call the function and output it's result 
+    # call the function and output it's result
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
 # of bigger stack, we have to launch the computation in a new thread.
@@ -74,4 +89,3 @@ sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
 main()
-#print(numpy.array([1,2,3]))
