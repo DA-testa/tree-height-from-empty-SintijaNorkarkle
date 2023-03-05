@@ -15,10 +15,9 @@ def compute_height(aaa, vecaki):
     # Your code here
     heights = np.zeros(aaa, dtype=int)
     for i in range(aaa):
-        if heights[i] != 0:
-            continue
-        height = 0
-        j = i
+        if heights[i] == 0:
+            height = 0
+            j = i
         while j != -1:
             if heights[j] != 0:
                 height += heights[j]
@@ -53,7 +52,7 @@ def main():
             print("Nederīgs faila nosaukums")
 
         try:
-            faila_nosaukums = "test/" + str(faila_nosaukums)
+            
             with open(faila_atr, 'r' ,  encoding="utf8") as file:
                 aaa = int(file.readline().strip())
                 vecaki = np.array(list(map(int, file.readline().split())))
