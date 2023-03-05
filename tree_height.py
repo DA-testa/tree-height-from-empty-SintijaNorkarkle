@@ -5,6 +5,7 @@ Sintija Norkārkle
 import sys
 import threading
 import os
+import numpy as np
 
 def compute_height(aaa, vecaki):
     """
@@ -12,7 +13,7 @@ def compute_height(aaa, vecaki):
     """
     # Write this function
     # Your code here
-    heights = [0] * aaa
+    heights = np.zeros(aaa, dtype=int)
     for i in range(aaa):
         if heights[i] != 0:
             continue
@@ -33,7 +34,7 @@ def compute_height(aaa, vecaki):
             height -=1
             j = vecaki[j]
 
-    return max(heights)
+    return np.max(heights)
 
 def main():
     """
@@ -43,7 +44,7 @@ def main():
     # implement input form keyboard and from files
     if "I" in text:
         aaa = int(input("Ievadiet skaitu: ").strip())
-        vecaki = list(map(int,input("Ievadiet virkni: ").split()))
+        vecaki = np.array(list(map(int,input("Ievadiet virkni: ").split())))
     elif "F" in text:
 
         faila_nosaukums = input("Ievadiet faila nosaukumu: ").strip()
@@ -55,7 +56,7 @@ def main():
 
             with open(faila_atr, mode = "r" ,  encoding="utf8") as file:
                 aaa = int(file.readline().strip())
-                vecaki = list(map(int, file.readline().split()))
+                vecaki = np.array(list(map(int, file.readline().split())))
 
         except FileNotFoundError:
             print("Fails netika atrasts")
