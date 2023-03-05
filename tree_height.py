@@ -40,14 +40,14 @@ def main():
     """
     xdbf
     """
-    text = input("Ievadiet 'I' vai 'F' ").strip()
+    text = input().strip()
     # implement input form keyboard and from files
     if "I" in text:
-        aaa = int(input("Ievadiet skaitu: ").strip())
-        vecaki = np.array(list(map(int,input("Ievadiet virkni: ").split())))
+        aaa = int(input().strip())
+        vecaki = np.array(list(map(int,input().split())))
     elif "F" in text:
 
-        faila_nosaukums = input("Ievadiet faila nosaukumu: ").strip()
+        faila_nosaukums = input().strip()
         faila_atr = "." + os.sep + "name" + os.sep + faila_nosaukums
         if "a" in faila_nosaukums:
             print("Nederīgs faila nosaukums")
