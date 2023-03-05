@@ -15,7 +15,7 @@ def compute_height(a, vecaki):
 
     for i in range(a):
         if vecaki[i] == -1:
-            r = 1
+            r = i
         else:
             berni[vecaki[i]].append(i)
     s = [(r,1)]
