@@ -53,13 +53,13 @@ def main():
             print("Nederīgs faila nosaukums")
 
         try:
-
-            with open(faila_atr, mode = "r" ,  encoding="utf8") as file:
+            faila_nosaukums = "test/" + str(faila_nosaukums)
+            with open(faila_atr, 'r' ,  encoding="utf8") as file:
                 aaa = int(file.readline().strip())
                 vecaki = np.array(list(map(int, file.readline().split())))
 
         except FileNotFoundError:
-            print("Nepareiza atbilde")
+            print("Fails netika atrasts")
             return
     else:
         print("Error")
