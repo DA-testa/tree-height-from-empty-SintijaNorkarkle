@@ -37,46 +37,28 @@ def main():
     """
     xdbf
     """
-
-    options = {
-        "I": ievade_no_tastaturas,
-        "F": ievade_no_faila
-    }
     text = input("Ievadiet 'I' vai 'F' ")
     # implement input form keyboard and from files
-    try:
-        aaa, vecaki = options[text]()
-    except KeyError:
-        print("Nepareiza ievade")
-        return
-    print(compute_height(aaa, vecaki))
-    # let user input file name to use, don't allow file names with letter a
-def ievade_no_faila():
-    """
-    sdgc
-    """
-    faila_nosaukums = input("Ievadiet faila nosaukumu: ")
+    if "F" in text:
 
-    if "a" in faila_nosaukums:
-        print("Nederīgs faila nosaukums")
-        return
-    try:
-        faila_atr = "." + os.sep + "name" + os.sep + faila_nosaukums
-        with open(faila_atr, mode = "r" ,  encoding="utf8") as file:
-            aaa = int(file.readline())
-            vecaki = list(map(int, file.readline().strip().split()))
+        faila_nosaukums = input("Ievadiet faila nosaukumu: ")
+
+        if "a" in faila_nosaukums:
+            print("Nederīgs faila nosaukums")
+            return
+        try:
+            faila_atr = "." + os.sep + "name" + os.sep + faila_nosaukums
+            with open(faila_atr, mode = "r" ,  encoding="utf8") as file:
+                aaa = int(file.readline())
+                vecaki = list(map(int, file.readline().strip().split()))
+            return aaa, vecaki
+        except FileNotFoundError:
+            print("Fails netika atrasts")
+    if "I" in text:
+        aaa = int(input("Ievadiet koka mezglu skaitu: "))
+        vec = input()
+        vecaki = [int(v) for v in vec.split()]
         return aaa, vecaki
-    except FileNotFoundError:
-        print("Fails netika atrasts")
-
-def ievade_no_tastaturas():
-    """
-    sfdgbcx
-    """
-    aaa = int(input("Ievadiet koka mezglu skaitu: "))
-    vec = input()
-    vecaki = [int(v) for v in vec.split()]
-    return aaa, vecaki
 
     # account for github input inprecision
     # input number of elements
