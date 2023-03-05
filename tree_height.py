@@ -21,7 +21,7 @@ def compute_height(aaa, vecaki):
         j = i
         while j != -1:
             if heights[j] != 0:
-                neight += heights[j]
+                height += heights[j]
                 break
             height += 1
             j = vecaki[j]
