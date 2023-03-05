@@ -6,14 +6,14 @@ import sys
 import threading
 import numpy as np
 
-def compute_height(aaa, vecaki):
+def compute_height(nnn, parents):
     """
     xcvn
     """
     # Write this function
     # Your code here
-    heights = np.zeros(aaa, dtype=int)
-    for i in range(aaa):
+    heights = np.zeros(nnn, dtype=int)
+    for i in range(nnn):
         if heights[i] == 0:
             height = 0
             j = i
@@ -22,7 +22,7 @@ def compute_height(aaa, vecaki):
                 height += heights[j]
                 break
             height += 1
-            j = vecaki[j]
+            j = parents[j]
         j = i
         while j != -1:
             if heights[j] != 0:
@@ -30,7 +30,7 @@ def compute_height(aaa, vecaki):
                 break
             heights[j] = height
             height -=1
-            j = vecaki[j]
+            j = parents[j]
 
     return np.max(heights)
 
@@ -45,12 +45,12 @@ def main():
         vecaki = np.array(list(map(int,input().split())))
     elif "F" in text:
 
-        faila_nosaukums = str(input())
+        faila_nosaukums = input()
         if "a" in faila_nosaukums:
             print("Nederīgs faila nosaukums")
 
         try:
-            faila_nosaukums = "test/" + str(faila_nosaukums)
+            faila_nosaukums = "test/" + faila_nosaukums
             with open(faila_nosaukums, 'r' ,  encoding="utf8") as file:
                 aaa = int(file.readline().strip())
                 vecaki = np.array(list(map(int, file.readline().split())))
